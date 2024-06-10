@@ -1,0 +1,59 @@
+<!-- 
+ ToDO:- get Evolutions.js Zeile 49-51 
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romans Pokedex</title>
+    <link rel="icon" type="image/x-icon" href="./img/icons8-poke-ball-32.png">
+
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js"></script>
+    <script src="./getEvolutions.js"></script>
+    <script src="./dynamicHTML.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=NTR&display=swap" rel="stylesheet">
+
+</head>
+<body onload="initialize(41)">
+
+    
+
+    <div class="headerDivClass">
+        <img src="./img/icons8-poke-ball-80.png" alt="" class="headerIconClass headerIconClass3">
+
+        <!-- //Search// -->
+        <input type="text" placeholder="Search Pokedex" class="searchInputClass" id="searchInputId" oninput="searchAllPokemon()">
+        <img src="./img/icons8-menü-64.png" alt="" class="headerIconClass headerIconClass2">
+    </div>
+
+    <div id="content"></div>
+
+   
+
+    <div class="plusButtonDivClass">
+        <img src="./img/icons8-plus-64.png" alt="" onclick="render20More()" id="plusIconId" >
+        <img src="./img/icons8-oben-eingekreist-64.png" alt="" class="toTopImgClass" onclick="scrollToTop()">
+    </div>
+    <div id="mainLoadingSpinnerDivId">
+        <div class="loadingSpinnerChildDiv"></div>
+        <div id="loadingSpinner">
+            <img src="./img/icons8-pokéball-100.png" alt="" id="rotatingSpinner">
+        </div>
+    </div>
+
+    
+   
+    
+    <div id="mainOverlayDivId" onclick="closeMainOverlay()" class="fadeInClass">
+        <div id="overlayChild1DivId" onclick="event.stopPropagation()"></div>
+    </div>
+
+</body>
+</html>

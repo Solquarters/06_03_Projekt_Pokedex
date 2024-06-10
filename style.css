@@ -1,0 +1,652 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(246, 246, 255);
+  font-family: "NTR", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 16px;
+}
+
+#searchInputId{
+  font-family: "NTR", sans-serif;
+  font-size: 16px;
+}
+
+.headerDivClass {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(181, 181, 255);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerIconClass {
+  width: 64px;
+  height: 64px;
+}
+
+.headerIconClass2 {
+  filter: invert(2);
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  padding: 0px 20px 0px 0px;
+}
+
+.headerIconClass2:hover {
+  opacity: 0.5;
+}
+
+.headerIconClass3 {
+  padding: 0px 0px 0px 20px;
+}
+
+#content {
+  display: flex;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.singlePokemonCardClass {
+  border: 1px solid lightgray;
+  border-radius: 24px;
+  padding: 16px 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 12px 16px;
+  color: white;
+  cursor: pointer;
+  transition: all;
+}
+
+/* Scale Hover Effekt wird beim Hauptbild und beim Icon getriggert - why ?! 
+Daher hab ich einfach auch die icons mit dem effekt versehen */
+.singlePokemonCardClass:hover img:nth-of-type(1) {
+  transform: scale(1.1);
+  transition: transform 150ms ease-in-out;
+  filter: saturate(1.3);
+}
+.singlePokemonCardClass:hover img:nth-of-type(2) {
+  transform: scale(1.1);
+  transition: transform 150ms ease-in-out;
+  filter: saturate(1.3);
+}
+
+.pokeIdDivForSpanClass {
+  position: relative;
+  top: -6px;
+  left: -24px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  border: 1px solid rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+}
+.nameAndNumberDivClass {
+  width: 140px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.mainPokeImgClass {
+  width: 100px;
+  height: 100px;
+}
+
+.titleSpanClass {
+  
+  position: relative;
+  top: -12px;
+  margin: 16px 0px 0px 0px;
+  font-size: 20px;
+  font-weight: 800;
+  transition: all;
+  
+}
+
+.plusButtonDivClass {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  margin: 16px 0px;
+}
+
+.plusButtonDivClass img:hover {
+  filter: invert(0.5);
+}
+
+.normal {
+  background-color: #c1c2c1;
+}
+.fighting {
+  background-color: #ffac59;
+}
+.flying {
+  background-color: #add2f5;
+}
+.poison {
+  background-color: #b884dd;
+}
+.ground {
+  background-color: #b88e6f;
+}
+.rock {
+  background-color: #cbc7ad;
+}
+.bug {
+  background-color: #b8c26a;
+}
+.ghost {
+  background-color: #a284a2;
+}
+.steel {
+  background-color: #98c2d1;
+}
+.fire {
+  background-color: #ef7374;
+}
+.water {
+  background-color: #74acf5;
+}
+.grass {
+  background-color: #82c274;
+}
+.electric {
+  background-color: #fcd659;
+}
+.psychic {
+  background-color: #f584a8;
+}
+.ice {
+  background-color: #81dff7;
+}
+.dragon {
+  background-color: #8d98ec;
+}
+.dark {
+  background-color: #998b8c;
+}
+.fairy {
+  background-color: #f5a2f5;
+}
+
+.lightBoxShadowClass {
+  box-shadow: 0px 0px 0px 2px rgb(65, 65, 65);
+}
+
+.lightBoxShadowClass2 {
+  box-shadow: 0px 0px 2px 2px rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.lightBoxShadowClass3 {
+  padding: 16px;
+  box-shadow: 0px 0px 2px 1px rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.typeIconDivClass {
+  display: flex;
+}
+.typeIconClass {
+  width: 32px;
+  height: 32px;
+  margin: 24px 10px 10px 10px;
+}
+
+/* OVERLAY START  */
+#mainOverlayDivId {
+  display: none;
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.767);
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+#overlayChild1DivId {
+  width: 320px;
+  margin: 0;
+}
+
+.overlayPokemonDivClass {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  padding: 8px 0px 8px 0px;
+  border-radius: 16px 16px 0px 0px;
+  z-index: 5;
+}
+
+.mainPokeOverlayImgClass {
+  width: 150px;
+  height: 150px;
+}
+
+.mainPokeOverlayImgClass:hover {
+  scale: 1.05;
+}
+
+.attributesMainDivClass {
+  position: relative;
+  z-index: 1;
+  height: 292px;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 0px 0px 16px 16px;
+  font-size: 18px;
+  font-weight: 500;
+  color: rgb(0, 0, 0);
+}
+
+.overlayMenuDivClass {
+  margin: 0px 0px 8px 0px;
+}
+
+.mainStatsTableClass {
+  border-radius: 12px;
+  width: 270px;
+  padding: 0px 0px 0px 0px;
+}
+
+.mainStatsTableClass td {
+  padding: 0px 6px;
+}
+
+.mainStatsTableClass td:nth-child(2) {
+  text-align: right;
+}
+
+#abilityTdId {
+  white-space: normal;
+}
+
+.verticalAlignTableElementClass {
+  vertical-align: top;
+}
+
+.arrowDiv {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.arrowDiv img:hover {
+  filter: invert(0.6);
+}
+
+.arrowClass {
+  width: 48px;
+  height: 48px;
+  filter: invert(1);
+  cursor: pointer;
+  margin: 6px 6px;
+}
+
+.arrowClass2 {
+  width: 32px;
+  height: 32px;
+  filter: invert(1);
+  cursor: pointer;
+  margin: 6px 6px;
+}
+
+.arrowClass:hover {
+  filter: invert(0.6);
+}
+
+/*////NAVBAR */
+nav {
+  padding: 4px;
+  position: relative;
+  width: 312px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  position: relative;
+}
+
+nav li {
+  display: inline-block;
+  margin: 0px 0px 0px 0px;
+}
+
+nav li a {
+  text-decoration: none;
+  color: #8a8a8a9d;
+  font-weight: bold;
+  margin: 0px 4px 0px 8px;
+}
+
+nav li a:hover {
+  color: #797979;
+}
+
+.active a {
+  color:#464646;
+}
+
+.underline {
+  position: absolute;
+  bottom: 10px;
+  height: 3px;
+  background-color: #c9c9c9;
+  border-radius: 4px;
+  transition: left 0.3s ease-in-out, width 0.2s ease-in-out;
+}
+
+/* Set initial position and width of the underline */
+nav li.active .underline {
+  left: 0;
+  width: 100%;
+  color: #535353;
+}
+
+#attributesDivId {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.smallSeperatorDivClass {
+  height: 1px;
+  width: 220px;
+  background-color: white;
+  margin: 8px 0px;
+}
+
+.evoAttributesImgDiv1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.evoAttributesImgDiv1 img {
+  margin: 8px 0px 0px 0px;
+}
+
+.evoAttributesImgDiv2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0px 8px 0px;
+}
+
+.evoPokeImgClass {
+  width: 80px;
+  height: 80px;
+  margin: 6px 0px 0px 0px;
+}
+
+.lightBoxShadowClass4 {
+  padding: 12px;
+  box-shadow: 0px 0px 2px 1px rgb(189, 189, 189);
+  border-radius: 50%;
+}
+
+.evoArrowImgClass1 {
+  width: 20px;
+  height: 20px;
+  margin: 4px;
+  filter: invert(0.7);
+}
+
+.evoArrowImgClass2 {
+  position: relative;
+  top: 64px;
+  left: 40px;
+  transform: rotate(130deg);
+}
+
+.evoArrowImgClass3 {
+  position: absolute;
+  top: 96px;
+  left: 146px;
+}
+
+.margin-top {
+  margin: 10px 0px 0px 0px;
+}
+
+.searchInputClass {
+  padding: 0px 4px;
+  border-radius: 20px 20px 20px 20px;
+  border: none;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+}
+
+.toTopImgClass{
+  width: 58px;
+  height: 58px;
+  margin: 0px 0px 0px 32px;
+}
+
+/* ////////////////////SVG CSS //////////////// */
+.container {
+  position: relative;
+  margin:0px 16px;
+  left: 52px;
+  width: 104px; 
+  height: 104px; 
+}
+
+.circle {
+  position: absolute;
+  top: 50%;
+  width: 112px; 
+  height: 112px;
+  border-radius: 50%;
+  border: 1px solid rgb(199, 199, 199);
+  padding: 12px;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  overflow: hidden; 
+}
+
+.circle img {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  top: -6px;
+  right: -6px;
+}
+
+.text {
+  position: absolute;
+  top: 0;
+  right: 52px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+svg {
+  width: 100%;
+  height: 100%;
+}
+
+.marginSidesClass{
+  margin: 0px 16px;
+}
+
+.aTagClass{
+  display: inline-block;
+  font-size: 24px; 
+  font-weight: 600; 
+}
+
+input {
+  caret-color: rgba(105, 105, 105, 0.315); }
+
+/* //Progress Bar */
+  .progress {
+    width: 150px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+
+  .progress-bar {
+    font-size: 14px;
+    height:10px;
+    background-color: #93d68d;
+    text-align: center;
+    line-height: 12px;
+    transition: width 1200ms ease-in-out;
+  }
+
+  .fadeInClass {
+    animation: fade 300ms ease-in-out;
+    opacity: 1;
+  }
+  
+  .fadeOutClass{
+    animation: fadeOut 300ms ease;
+    opacity: 0;
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from  {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  
+
+
+
+
+/* ////Loading Spinner ///// */
+  #mainLoadingSpinnerDivId {
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    display:flex;
+    justify-content: center;
+    margin: 16px 0px;
+}
+
+.loadingSpinnerChildDiv {
+    z-index: 15;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    background-color: #ffffff;
+    position: relative;
+    left: 40px;
+}
+
+#loadingSpinner {
+  position: relative;
+  right: 40px;
+  width: 80px;
+  height: 80px;
+  z-index: 20;
+    /* filter: invert(0.8); */
+}
+
+#rotatingSpinner {
+  z-index: 25;
+  filter: opacity(0.5);
+  border-radius: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Adjust as needed */
+    animation: rotate 1.5s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+#mainLoadingSpinnerDivId2 {
+  width: 100%;
+  height: 100%;
+  z-index: 20;
+  display:flex;
+  justify-content: center;
+  margin: 16px 0px;
+}
+
+.loadingSpinnerChildDiv2 {
+  z-index: 15;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background-color: #ffffff;
+  position: relative;
+  left: 30px;
+}
+
+#loadingSpinner2 {
+position: relative;
+right: 30px;
+width: 60px;
+height:60px;
+z-index: 20;
+  /* filter: invert(0.8); */
+}
+
+#rotatingSpinner2 {
+z-index: 25;
+filter: opacity(0.5);
+border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff; /* Adjust as needed */
+  animation: rotate 1.5s linear infinite;
+}
